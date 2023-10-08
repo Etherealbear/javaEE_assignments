@@ -1,5 +1,5 @@
-#JavaEE第二次课程学习笔记
-##Stream and IO
+# JavaEE第二次课程学习笔记
+## Stream and IO
 
 ### FileReader and FileWriter
 FileReader类从InputStreamReader类继承而来。该类按字符读取流中数据。
@@ -52,8 +52,7 @@ public class FileWAndR {
     }
 }
 ```
-输出
-<img src="..\other\photos\20230926121525.png style=" alt="Image text" style="zoom:50%;"/>
+
 
 ### FileInputStream and FileOutputStream
 
