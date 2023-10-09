@@ -102,9 +102,13 @@ BookDao bookDao = ctx.getBean("bookDao",BookDao.class);
 BookDao bookDao = ctx.getBean(BookDao.class);
 ```
 ### DI入门案例
+
 >1.基于IOC管理bean
+
 >2. Service中使用new形式创建的Dao对象是否保留？（否）
+
 >3. Service中需要的Dao对象如何进到Service中？(提供方法)
+
 >4. Service和Dao间的关系怎么描述？（配置文件）
 
 在接口类中 new对象操作取消，提供依赖对象的set方法
@@ -140,8 +144,11 @@ Service和Dao间的关系，写进配置文件中。
 
 ### bean配置
 - **bean基础配置**
-图片
+
+![beanConfig](https://github.com/Etherealbear/javaEE_assignments/blob/main/pics/beanConfig.png)
+
 - **bean别名配置**
+![beanConfig](https://github.com/Etherealbear/javaEE_assignments/blob/main/pics/beanOtherName.png)
 
 ```
 <!--name:为bean指定别名，别名可以有多个，使用逗号，分号，空格进行分隔-->
