@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--1.导入spring的坐标spring-context，对应版本是5.2.10.RELEASE-->
+    <!--注入简单类型-->
+    <bean id ="car" class="org.example.Car.Impl.CarImpl">
+    <!--    <property name="carname" value="Futer"/>   -->
+    <!--     <property name="boughtYear" value="2022"/>  -->
+
+        <!--构造函数注入  -->
+        <constructor-arg name="carname" value="Futer"/>
+        <constructor-arg name="boughter" type="int" value="2022"/>
+    </bean>
+    <!--注入引用类型-->
+    <bean id="DriveCar" class="org.example.Service.Impl.DriveCarImpl">
+        <property name="car" ref="car"/>
+    </bean>
+</beans>
