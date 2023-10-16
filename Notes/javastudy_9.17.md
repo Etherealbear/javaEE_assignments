@@ -9,7 +9,8 @@ class C extends A, B{
 ```
 因为假如两个父类有一个同样的方法名的方法，子类调用该方法时不知道调用谁的。
 >java中不支持多个实体
-###方法重写
+
+### 方法重写
 子类可以有和父类一样的方法，在子类对象调用的时候优先选择子类的该方法调用。
 如下：
 ```
@@ -36,7 +37,7 @@ public class Demo {
 }
 ```
 
-#Package in java
+# Package in java
 两个文件不在一个包（文件夹）中，想使用其中的类的话必须引用（import 包名.类名）
 如下：
 ```
@@ -46,7 +47,7 @@ import tools.Calc;
 mvnrepository.com
 如果想要共享自己的库的话，必须使这个包名独一无二，一般来说都使用反转域名的方式，如：com.Google
 
-#访问修饰符
+# 访问修饰符
 如果package内的字段不是public的时候，在包外无法访问，即使引用了这个包。
 
 >**default** （即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。
@@ -54,13 +55,13 @@ mvnrepository.com
 >**public** : 对所有类可见。使用对象：类、接口、变量、方法
 >**protected** : 对同一包内的类和所有子类可见。使用对象：变量、方法。 注意：不能修饰类（外部类）。
 
-#多态 Polymorphism
+# 多态 Polymorphism
 相同对象或相同引用根据创建实例的方式具有不同
 >多态有两种
 > * 第一种： comply编译时多态 -->方法重载
 > * 第二种： runtime多态  -->方法重写
 
-##Dynamic Method Dispatch
+## Dynamic Method Dispatch
 ```
 class A{
     public void show(){
@@ -132,7 +133,7 @@ public class test {
 如果要说两个对象相同的话，他们不仅要拥有相同的值，还要拥有相同的哈希码。
 如果想要自己定义 equals方法的话，可以右键选择生成哈希码，选择相应的要比较的所有变量。（Generate hashCode() and equals()）
 
-##UPcasting and Downcasting in java（向上转型和向下转型）
+## UPcasting and Downcasting in java（向上转型和向下转型）
 父类不知道子类的存在，但是子类知道父类。父类不能调用子类的方法。
 ```
 class A{
@@ -164,7 +165,7 @@ public class test {
         //obj.show2(); //这样也不行 会报错
     }}
 ```
-##向上转换（upcasting）
+## 向上转换（upcasting）
 ```
 public class test {
     public static void main(String args[]){
@@ -175,7 +176,7 @@ public class test {
         
     }}
 ```
-##向下转换
+## 向下转换
 提要：B继承A
 ```
         A obj = new B(); //向上转换
