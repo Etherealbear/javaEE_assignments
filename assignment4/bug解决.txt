@@ -1,0 +1,5 @@
+在编写测试文档的时候，总是在update的时候出错，分析原因是name没有读取到，全是空值。
+排查后发现是在测试文件中new该对象的时候，开始报错说没有constructor，于是我让他自动添加了一个，这样的话就会报错，原因正在排查。
+解决办法是要加两个注解：
+@NoArgsConstructor
+@AllArgsConstructor
