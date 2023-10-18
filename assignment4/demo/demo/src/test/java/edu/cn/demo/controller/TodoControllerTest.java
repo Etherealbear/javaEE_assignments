@@ -40,7 +40,7 @@ public class TodoControllerTest {
         this.mockMvc.perform(get("/todos/{id}",1))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("看书"));  // 响应的JSON中包含一个"name"字段，且值为"薯条"
+                .andExpect(jsonPath("$.name").value("看书"));  // 响应的JSON中包含一个"name"字段，且值为"看书"
         //恢复测试环境
         todoService.deleteTodo(1);
     }
