@@ -30,7 +30,7 @@ public class TodoControllerTest {
 
     @Test
     public void testGet() throws Exception {
-        //使用MockMvc执行get请求
+        //使用MockMvc模拟get请求
         this.mockMvc.perform(get("/todos/{id}",1))
                 .andDo(print()) //控制台打印返回信息
                 .andExpect(status().isNoContent()); //验证响应代码是否为204
@@ -50,7 +50,7 @@ public class TodoControllerTest {
     public void testPost() throws Exception {
         Todoitem todo = new Todoitem(1, "看书", false);
         String content = new ObjectMapper().writeValueAsString(todo);  // 使用ObjectMapper将该商品对象转换为JSON字符串
-        // 使用MockMvc执行POST请求，请求路径是"/commodities"，请求的内容类型为JSON。请求的内容是前面创建的JSON字符串
+        // 使用MockMvc模拟POST请求，请求路径是"/todos"，请求的内容类型为JSON。请求的内容是前面创建的JSON字符串
         this.mockMvc.perform(post("/todos")
                         .content(content)
                         .contentType(MediaType.APPLICATION_JSON)
