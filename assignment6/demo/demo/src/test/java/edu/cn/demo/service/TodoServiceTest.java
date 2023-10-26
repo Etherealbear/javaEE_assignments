@@ -4,6 +4,7 @@ import edu.cn.demo.aspect.StopWatchAspect;
 import edu.cn.demo.entity.Todoitem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -11,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TodoServiceTest {
     private TodoService todoService;
 
-    private StopWatchAspect stopWatchAspect;
+    private StopWatchAspect stopWatchAspect = new StopWatchAspect();
+
     @BeforeEach
     public void setup(){
         todoService = new TodoService();
-        stopWatchAspect = new StopWatchAspect();
     }
 
     @Test
@@ -91,6 +92,10 @@ public class TodoServiceTest {
         Todoitem result = todoService.getTodo(4);
         assertNull(result);
     }
+
+    /**
+     * 测试Spring AOP编写API监控功能
+     */
     @Test
     public void testAspect(){
         Todoitem todo = new Todoitem(6, "做饭",true);
@@ -100,6 +105,7 @@ public class TodoServiceTest {
         todoService.addTodo(todo);
         todoService.deleteTodo(6);
         stopWatchAspect.getMetric().forEach((k,v)-> {System.out.println(k  +"= "+v);});
+
     }
 
 

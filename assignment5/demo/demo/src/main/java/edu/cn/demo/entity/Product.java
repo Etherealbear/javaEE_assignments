@@ -2,6 +2,7 @@ package edu.cn.demo.entity;
 
 import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
@@ -24,16 +25,22 @@ public class Product implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @TableField(value = "name")
     private String name;
 
-    private BigDecimal price;
+    @TableField(value = "price")
+    private float price;
 
-    private BigDecimal Quantity;
+    @TableField(value = "Quantity")
+    private float Quantity;
 
+    @TableField(value = "category")
     private String category;
 
+    @TableField(value = "product_Type")
     private String product_Type;
 
+    @TableField(value = "description")
     private String description;
 
 
