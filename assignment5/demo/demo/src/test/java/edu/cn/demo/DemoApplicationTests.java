@@ -124,12 +124,12 @@ void testGetAll(){
 		@Test
 	void testSave() throws ProductAdminException {
 		Product product = new Product();
-		product.setName("花生");
-		product.setPrice(15f);
-		product.setQuantity(66f);
-		product.setProduct_Type("坚果");
+		product.setName("老干妈");
+		product.setPrice(7f);
+		product.setQuantity(166f);
+		product.setProduct_Type("吃的");
 		product.setCategory("食品");
-		product.setDescription("很好吃的脆脆的果子");
+		product.setDescription("放什么什么好吃");
 		productService.InsertProduct(product);
 	}
 
@@ -140,7 +140,7 @@ void testGetAll(){
 	 */
 	@Test
 	void testDeleteProduct() throws ProductAdminException{
-		productService.delectProduct(1);
+		productService.delectProduct(14);
 	}
 
 
@@ -203,11 +203,12 @@ void testGetAll(){
 	//	assertEquals(11,result.getRecords().size());
 
 		//使用跨表属性查询(supplierName在supplier表中)
-		condition.put("name","鼠标");
+		condition.put("supplierName","A公司");
+	//	condition.put("category","生活用品类");
 		IPage<ProductDTO> result = productService.findProducts(condition, 0, 11);
 		System.out.println(result);
 
-//		condition.put("supplierName","A公司");
+//
 //		 result = productService.findProducts(condition, 0, 11);
 //		System.out.println(result);
 	//	assertEquals(1,result.getTotal());

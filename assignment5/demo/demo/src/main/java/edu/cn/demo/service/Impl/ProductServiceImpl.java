@@ -100,6 +100,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
     /**
      * 查询所有商品
      */
+    @Transactional(rollbackFor = ProductAdminException.class)
  public IPage<ProductDTO> findProducts(Map<String, Object> condition, Integer pageNum, Integer pageSize) throws  ProductAdminException{
      //先new一个页面用于调用
      IPage<ProductDTO> page = new Page<>(pageNum,pageSize);
@@ -117,14 +118,14 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
              productDao.findProductsHaveSupplier(page,qw);
          }
          catch (Exception e){
-             throw new ProductAdminException("找不到该类商品");
+             throw new ProductAdminException("根据您输入的条件，没有找到符合要求的商品，请尝试修改或删除一些条件再进行查询");
          }
      }
      else {
          try {
              productDao.findProducts(page,qw);
          }catch (Exception e){
-             throw new ProductAdminException("找不到该类商品");
+             throw new ProductAdminException("根据您输入的条件，没有找到符合要求的商品，请尝试修改或删除一些条件再进行查询");
          }
      }
 

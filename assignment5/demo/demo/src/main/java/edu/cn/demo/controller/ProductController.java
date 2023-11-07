@@ -4,6 +4,7 @@ package edu.cn.demo.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import edu.cn.demo.entity.Product;
 import edu.cn.demo.exception.ProductAdminException;
 import edu.cn.demo.service.Impl.ProductServiceImpl;
@@ -35,6 +36,13 @@ public class ProductController {
     ProductServiceImpl productService;
 
 
+    @GetMapping("")
+
+    public ResponseEntity<List<Product>> queryProducts(){
+        List<Product> result = productService.getAllProducts();
+        return ResponseEntity.ok(result);
+    }
+
     @ApiOperation("添加一个商品")
     @PostMapping("")
     public ResponseEntity<Product> addProduct(@RequestBody Product product) throws ProductAdminException {
@@ -52,7 +60,7 @@ public class ProductController {
     }
 
     @ApiOperation("修改商品信息")
-    @PutMapping("")
+    @PutMapping("/{id}")
     public ResponseEntity<Void> updateProduct(@PathVariable long id,@RequestBody Product product) throws ProductAdminException {
         productService.UpdateProduct(id,product);
         return ResponseEntity.ok().build();
